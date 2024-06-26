@@ -1,0 +1,16 @@
+{
+  "indepsUrls": {
+    "indep1": "https://mdb-indep1.diadeis.com/Mediabox-Independence/",
+    "indep2": "https://mdb-indep2.diadeis.com/Mediabox-Independence/",
+    "indep3": "https://mdb-indep3.diadeis.com/Mediabox-Independence/",
+    "indep4": "https://mdb-indep4.diadeis.com/Mediabox-Independence/",
+    "indep5": "https://mdb-indep5.diadeis.com/Mediabox-Independence/",
+    "indep6": "https://mdb-indep6.diadeis.com/Mediabox-Independence/",
+    "indep7": "https://mdb-indep7.mediabox.com/Mediabox-Independence/",
+    "indep8": "https://mdb-indep8.mediabox.com/Mediabox-Independence/",
+    "RELEASE": "https://mdb-release.diadeis.lan/MediaboxIndependence/",
+    "TEST-V3": "https://mdb-v3-test.diadeis.com/MediaboxIndependence/",
+    "TEST-V4": "https://mdb-v4-test.mediabox.com/Mediabox-Independence/"
+  },
+  "server":"indep8"  
+}
