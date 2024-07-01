@@ -23,6 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+const config = require('../fixtures/config.json');
 
 Cypress.Commands.add('login', (server) => { 
     cy.visit(`${server}?MBI_datasource=TEST_DEV_FROM_DEMO`)

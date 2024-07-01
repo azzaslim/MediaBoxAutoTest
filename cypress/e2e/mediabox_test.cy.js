@@ -33,7 +33,7 @@ describe(`DEPLOYMENT E2E tests - MEDIABOXINDEPENDENCE - ${JSON.stringify(config.
     //validation toastr - success
     cy.get('.toast-message').contains('has successfully been updated')
 
-    //serch project
+    //search project
     cy.get('#sidebarsearch > .input-group > #keywords').clear().type(`MPM TEST - Project ${n}`)
     cy.log('Waiting for 20 seconds to ensure the project update is propagated to Hangfire. If this fails, it may be due to insufficient time for Hangfire to complete its process.');
     cy.wait(20000)
@@ -72,75 +72,21 @@ describe(`DEPLOYMENT E2E tests - MEDIABOXINDEPENDENCE - ${JSON.stringify(config.
   //})
 
 
-  ////////////////////////////////////////////Widget management
+  
 
-  //Update Widget
-  it.only('update widget', ()=>{
-   cy.login(indepsUrls[server]);
-   cy.get('#widg_20240626_163625_241VHVSKY > .card > .card-header >.card-toolbar > #currentProjectsNb ').click();
-   cy.get('#formModifWidget > .form-body > :nth-child(1) > .col-9 > .form-control').clear();
-
-   cy.get('#formModifWidget > .form-body > :nth-child(1) > .col-9 > .form-control').type('azza');
-   cy.get('#formModifWidget > .form-body > .col-12 > .btn-primary').click();
-
-
-});
-
-//view more
-it('view  widget details ', ()=>{
+//profile management
+it('profile config',()=>{
   cy.login(indepsUrls[server]);
-  cy.get('#widg_20240626_163625_241VHVSKY > .card > .card-header > .card-toolbar')
-  .find('a').eq(1) 
-  .find('.fa-arrow-right') 
-  .click();
- //cy.get('.card-toolbar > #fas fa-arrow-right icon-xm text-white').click();
- cy.wait(35000);
 
+  cy.get('.mx-2').click();
+  cy.get('#btn_display_profile').click();
+
+  //cy.get('.form-body > .form-group > .col-9 > #userAccount > .card-body > #MyFile').click();
+cy.get('#MyFile').click({ force: true });
 });
 
 
-//Delete a widget
-it('delete widget', ()=>{
-  cy.login(indepsUrls[server]);
-  cy.get('#widg_20240626_171129_300WNH3IP > .card > .card-header > .card-toolbar > [data-content="Delete widget"] > .ki').click();
-  cy.get('#sColors > .yellow-lemon').click();
-  cy.get('#AddWidgetS > .col-12 > #saveS').click();
 
 
-});
 
-
-//  Add Widget 
-  it('add Widget', () => {
-    cy.login(indepsUrls[server]);
-    cy.get('[data-target="#AddSmallForm"] > .flaticon2-plus').click();
-    
-    // Attendre que l'élément soit cliquable et ajouter un message de log
-    cy.get('#select2-selectWidgetS-container > .select2-selection__placeholder').should('be.visible').click()
-      .then(() => {
-        cy.log('Clicked on placeholder');
-      });
-    
-    // Attendre que le menu déroulant soit visible et ajouter un message de log
-    cy.get('.select2-dropdown')
-      .should('be.visible')
-      .then(() => {
-        cy.log('Dropdown is visible');
-      });
-    
-    // Vérifier que les options du menu déroulant sont présentes et ajouter un message de log
-    cy.get('.select2-results__option')
-      .should('have.length.greaterThan', 0);
-    
-    // Cibler l'élément directement en utilisant un sélecteur simplifié
-    cy.get('.select2-results__option')
-      .contains('Connections')
-      .should('be.visible')
-      .click({ force: true })
-      .then(() => {
-        cy.log('Clicked on "Connections"');
-      });
-      cy.get('#sColors > .yellow-lemon').click();
-    cy.get('#AddWidgetS > .col-12 > #saveS').click();
-  });
 })
